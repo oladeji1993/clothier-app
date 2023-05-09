@@ -1,0 +1,37 @@
+
+
+.nav-container{
+    display:flex;
+    // margin-left:20px;
+}
+
+.nav-item{
+    margin-top:10px;
+    padding-bottom:7px;
+}
+
+.nav-item-staff{
+    margin-top:10px;
+    padding-bottom:9px;
+}
+
+.mr-5{
+    margin-right:15px;
+    padding-bottom:10px;
+}
+
+.is-active{
+    border-bottom: 3px solid #5ECE7B;
+}
+
+.badge {
+    position: absolute;
+    top: -10px;
+    right: -20px;
+    padding: 4px 9px;
+    border-radius: 50%;
+    background: #000000;
+    font-size: 10px;
+    color: white;
+    font-weight: 400;
+}

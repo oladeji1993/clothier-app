@@ -1,0 +1,35 @@
+*{
+    padding:0px;
+    margin:0px;
+    background: #fff;
+}
+
+:host{
+    display: flex;
+    flex-direction: column;
+    // height: 100vh;
+}
+
+mat-drawer-container{
+    height:100%
+}
+
+mat-drawer-content {
+    overflow: hidden;
+}
+
+
+.nav-container {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+}
+
+.nav-container.sticky {
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    font-size: 1.2rem;
+}

@@ -1,0 +1,13 @@
+<mat-drawer-container>
+    <mat-drawer mode="over">
+        <app-navbar></app-navbar>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="nav-container" #navBar>
+            <app-navbar></app-navbar>
+        </div>
+        <div id="container">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

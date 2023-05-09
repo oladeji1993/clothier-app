@@ -1,0 +1,39 @@
+<div class="flex container mt-10 px-10 md:px-0 justify-center md:justify-between flex-col md:flex-row mx-auto md:mt-20">
+    <img [src]="singleProducts.image" class="md:h-[40rem] md:mr-20" alt="">
+    <div class="md:w-1/2 w-full md:mt-20">
+        <div class="mr-5">
+            <div class="text-2xl font-bold text-dark mb-5 md:mb-10">{{singleProducts.name}}</div>
+            <div class="mt-1 text-sm mb-10">Size:<br>
+                <span class="flex mt-2">
+                    <div class="mr-2 border mt-1 border-black text-sm px-1">XS</div>
+                    <div class="mr-2 border mt-1 border-black text-sm px-2">S</div>
+                    <div class="mr-2 border mt-1 border-black text-sm px-1">M</div>
+                    <div class="border mt-1 border-black text-sm px-2">L</div>
+                </span>
+            </div>
+
+            <div class="mt-1">Color:<br>
+                <span class="flex mt-2">
+                    <div class="mr-2 mt-1 bg-[#D3D2D5] px-3"></div>
+                    <div class="mr-2 mr-2 mt-1 bg-[#000] px-3"></div>
+                    <div class="mr-2 mt-1 bg-[#0F6450] text-[#0F6450] px-3">.</div>
+                </span>
+            </div>
+
+            <div class="mt-1 font-bold">Price:<br>
+                <span class="flex mt-2">
+                    ${{singleProducts.price}}
+                </span>
+            </div>
+
+            <div *ngIf="singleProducts.status != 'not-available'" class="flex cursor-pointer justify-between text-center mt-5 w-72">
+                <div (click)="addToCart()" class="bg-[#5ECE7B] text-white p-2">Add to Cart</div>
+            </div>
+
+            <div class="mt-10">
+                Find stunning women's cocktail dresses and party dresses. 
+                Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="container relative bg-[#fff] px-20 py-2 mx-auto flex justify-between">
+    <div class="nav-container pt-1 pb-1">
+        <div class="nav-item cursor-pointer text-[17px] mr-8" [routerLink]="['/women' || '/details']" routerLinkActive="is-active">
+            WOMEN</div>
+        <div class="nav-item cursor-pointer text-[17px] mr-8" [routerLink]="['/men']" routerLinkActive="is-active">MEN
+        </div>
+        <div class="nav-item-staff cursor-pointer text-[17px] mr-8" [routerLink]="['/kids']"
+            routerLinkActive="is-active">KIDS</div>
+    </div>
+    <img src="assets/images/nav-logo.svg" alt="">
+
+    <button mat-button [matMenuTriggerFor]="menu">
+        <div class="mt-5 group menuDropDown relative">
+            <img src="assets/images/cart.svg" alt="">
+            <span class="badge text-md">{{cartNumber ? cartNumber : '0'}}</span>
+        </div>
+    </button>
+
+    <mat-menu class="w-[35rem] p-4 h-[30rem]" [hasBackdrop]="true" #menu="matMenu">
+        <div><span class="font-semibold">My Bag</span> {{cartNumber ? cartNumber : '0'}} items</div>
+        <div *ngFor="let item of cartItems" class="flex mt-5" (click)="$event.stopPropagation();">
+            <div class="mr-5">
+                <div class="text-sm">{{item.name}}</div>
+                <div class="text-[#1D1F22] font-semibold text-sm mt-2">{{item.price}}</div>
+                <div class="mt-1 text-sm">Size:<br>
+                    <span class="flex mt-2">
+                        <div class="mr-2 border mt-1 border-black text-sm px-1">XS</div>
+                        <div class="mr-2 border mt-1 border-black text-sm px-2">S</div>
+                        <div class="mr-2 border mt-1 border-black text-sm px-1">M</div>
+                        <div class="border mt-1 border-black text-sm px-2">L</div>
+                    </span>
+                </div>
+
+                <div class="mt-1">Color:<br>
+                    <span class="flex mt-2">
+                        <div class="mr-2 mt-1 bg-[#D3D2D5] px-3"></div>
+                        <div class="mr-2 mr-2 mt-1 bg-[#000] px-3"></div>
+                        <div class="mr-2 mt-1 bg-[#0F6450] text-[#0F6450] px-3">.</div>
+                    </span>
+                </div>
+            </div>
+            <div>
+
+            </div>
+            <div class="mr-5 flex flex-col justify-between">
+                <div (click)="increaseQty(item)" class="border mt-1 cursor-pointer border-black text-md font-semibold px-2">+</div>
+                <div class="ml-2 font-semibold">{{item.quantity}}</div>
+                <div (click)="decreaseQty(item)" class="border mt-1 cursor-pointer border-black font-semibold text-sm px-2">-</div>
+            </div>
+            <img [src]="item.image" class="h-[190px] w-[80px]" alt="">
+        </div>
+        <div class="flex mt-2 justify-between" (click)="$event.stopPropagation();">
+            <div class="font-bold">Total</div>
+            <div class="font-bold">${{total}}</div>
+        </div>
+
+        <div class="flex justify-between mt-5">
+            <div class="border p-2 mr-2">VIEW BAG</div>
+            <div class="bg-[#5ECE7B] text-white p-2">CHECK OUT</div>
+        </div>
+    </mat-menu>
+
+
+
+    <!-- <div class="group-hover:block dropdown-menu absolute hidden h-auto">
+        <ul class="top-0 w-48 bg-white shadow px-4 py-6">
+            <li routerLink="payment" class="py-1 dropMenu"><div class="block text-base text-sm p-1 cursor-pointer">Payment Gateway</div></li>
+            <li routerLink="payX" class="py-1 dropMenu"><a class="block text-base text-sm p-1 cursor-pointer">PayX</a></li>
+            <li routerLink="transact" class="py-1 dropMenu"><a class="block text-base text-sm p-1 cursor-pointer">TraXact</a></li>
+        </ul>
+    </div> -->
+</div>

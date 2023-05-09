@@ -1,0 +1,22 @@
+
+    <div class="container mx-auto mt-5">
+        <p class="text-2xl">Category name</p>
+    </div>
+    <section class="container mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-y-20 gap-x-14 mt-10 mb-5">
+
+        <div *ngFor="let product of products" class="container relative group mx-auto w-72 h-[24rem] bg-white lg:p-0 duration-500 hover:scale-105 hover:shadow-xl hover:p-4">
+            <img routerLink="/details" (click)="details(product)" [src]=product.image alt="Product" class="h-70 w-62 object-cover cursor-pointer" />
+            <div class="px-2 w-72 mt-5">
+                <span class="text-[#1D1F22] mr-3 text-lg cursor-pointer">{{product.name}}</span>
+                <div class="flex items-center">
+                <p class="text-lg font-semibold text-[#1D1F22] cursor-auto mt-3">${{product.price}}</p>
+                </div>
+            </div>
+            <div *ngIf="product.status == 'available'" class="absolute top-[15rem] right-8 opacity-0 group-hover:opacity-100 p-2 rounded-full bg-[#5ECE7B]">
+                <img src="assets/images/white-cart.svg" (click)="addToCart(product)" class="h-[20px] cursor-pointer" alt="">
+            </div>
+        </div>
+
+    </section>
+
+ 
