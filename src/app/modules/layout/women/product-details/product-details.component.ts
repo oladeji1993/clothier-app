@@ -22,19 +22,21 @@ export class ProductDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.singleProducts = JSON.parse(localStorage.getItem("singleProduct") || "{}")
-    this.cartItems = JSON.parse(localStorage.getItem("cartItems") || "{}")
+    this.singleProducts = JSON.parse(localStorage.getItem("singleProduct")!)
     console.log(this.singleProducts)
   }
 
   addToCart() {
+    this.cartItems = localStorage.getItem("cartItems")
     let item: any = this.singleProducts
-    if (this.cartItems == null || this.cartItems.length == 0) {
+    if (JSON.parse(this.cartItems) == null || JSON.parse(this.cartItems).length == 0) {
+      this.cartItems = []
       this.cartItems.push({ ...item })
       localStorage.setItem("cartItems", JSON.stringify(this.cartItems))
       this._cartService.cartMessenger.next(true)
       this._toastr.success(item.name + " added to cart")
     } else {
+      this.cartItems = JSON.parse(this.cartItems)
       let product = this.cartItems.find((p: any) => p.id == item.id)
       if (product) {
         // product.quantity++

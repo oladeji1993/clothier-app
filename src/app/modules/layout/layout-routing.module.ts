@@ -4,7 +4,7 @@ import { LayoutComponent } from './layout.component';
 import { WomenComponent } from './women/women.component';
 import { MenComponent } from './men/men.component';
 import { KidsComponent } from './kids/kids.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductDetailsComponent } from './women/product-details/product-details.component';
 
 const routes: Routes = [
   { 
@@ -29,7 +29,7 @@ const routes: Routes = [
           component: KidsComponent
         },
         {
-          path: 'details',
+          path: 'women/details',
           component: ProductDetailsComponent
         },
       ]

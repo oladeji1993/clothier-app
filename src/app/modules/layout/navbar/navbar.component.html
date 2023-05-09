@@ -1,13 +1,13 @@
-<div class="container relative bg-[#fff] px-20 py-2 mx-auto flex justify-between">
+<div class="container relative bg-[#fff] px-10 py-2 mx-auto flex justify-between">
     <div class="nav-container pt-1 pb-1">
-        <div class="nav-item cursor-pointer text-[17px] mr-8" [routerLink]="['/women' || '/details']" routerLinkActive="is-active">
+        <div class="nav-item cursor-pointer text-[17px] mr-8" [routerLink]="['/women']" routerLinkActive="is-active">
             WOMEN</div>
         <div class="nav-item cursor-pointer text-[17px] mr-8" [routerLink]="['/men']" routerLinkActive="is-active">MEN
         </div>
         <div class="nav-item-staff cursor-pointer text-[17px] mr-8" [routerLink]="['/kids']"
             routerLinkActive="is-active">KIDS</div>
     </div>
-    <img src="assets/images/nav-logo.svg" alt="">
+    <img src="assets/images/nav-logo.svg" class="hidden md:block" alt="">
 
     <button mat-button [matMenuTriggerFor]="menu">
         <div class="mt-5 group menuDropDown relative">
@@ -56,7 +56,19 @@
 
         <div class="flex justify-between mt-5">
             <div class="border p-2 mr-2">VIEW BAG</div>
-            <div class="bg-[#5ECE7B] text-white p-2">CHECK OUT</div>
+            <div
+                angular4-paystack
+              [email]="'olanipekunoladeji93@gmail.com'"
+              [amount]="total * 100"
+              [ref]="refNumber"
+              (init)="paymentInit()"
+              (onClose)="paymentCancel()"
+              (callback)="paymentDone($event)"
+              (click)="pay()"
+              class="cbtn cbtn-primary py-2 w-full my-2" 
+                class="bg-[#5ECE7B] cursor-pointer text-white p-2">
+                CHECKOUT
+            </div>
         </div>
     </mat-menu>
 

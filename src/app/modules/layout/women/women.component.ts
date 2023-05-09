@@ -74,13 +74,16 @@ export class WomenComponent implements OnInit {
 
 
   addToCart(item: any) {
-    if (this.cartItems == null || this.cartItems.length == 0) {
+    this.cartItems = localStorage.getItem("cartItems")
+    if (JSON.parse(this.cartItems) == null || JSON.parse(this.cartItems).length == 0) {
       this.cartItems.push({ ...item })
       localStorage.setItem("cartItems", JSON.stringify(this.cartItems))
       this._cartService.cartMessenger.next(true)
       this._toastr.success(item.name + " added to cart")
     } else {
+      this.cartItems = JSON.parse(this.cartItems)
       let product = this.cartItems.find((p: any) => p.id == item.id)
+      console.log(product)
       if (product) {
         product.quantity++
         this._toastr.success(item.name + " quantity increase")

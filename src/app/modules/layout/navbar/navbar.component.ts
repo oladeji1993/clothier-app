@@ -10,7 +10,9 @@ import { CartService } from 'src/app/services/cart/cart.service';
 export class NavbarComponent implements OnInit {
   cartNumber: any = 0
   cartItems: any = []
-  total: any = 0
+  total: any = 0;
+  refNumber: any;
+  clientDetails: any = 0
 
   constructor(
     private cartService: CartService,
@@ -19,7 +21,8 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.cartItems = JSON.parse(localStorage.getItem("cartItems") || "{}")
+    this.refNumber =  `ref-${Math.ceil(Math.random() * 10e13)}`;
+    this.cartItems = JSON.parse(localStorage.getItem("cartItems")!)
     this.cartService.cartMessenger.subscribe((resp: any) => {
       if (resp != null) {
         this.cartNumber = JSON.parse(localStorage.getItem("cartItems") || "")?.length;
@@ -31,6 +34,26 @@ export class NavbarComponent implements OnInit {
         this.getTotal()
       }
     })
+  }
+
+  
+
+  pay() {
+    if (this.clientDetails == undefined) {
+      console.log('Kindly Select a delivery Address')
+    }
+  }
+
+  paymentInit() {
+    console.log('Payment initialized');
+  }
+
+
+  paymentDone(event:any){
+    if(event){
+      this._toaster.success("Payment Successful", 'Success')
+      this.refNumber =  `ref-${Math.ceil(Math.random() * 10e13)}`;
+    }
   }
 
   increaseQty(item: any) {
@@ -53,6 +76,10 @@ export class NavbarComponent implements OnInit {
       } 
     });
     localStorage.setItem("cartItems", JSON.stringify(this.cartItems))
+  }
+
+  paymentCancel() {
+    console.log('payment failed');
   }
 
 

@@ -9,7 +9,8 @@ import { WomenComponent } from './women/women.component';
 import { MenComponent } from './men/men.component';
 import { KidsComponent } from './kids/kids.component';
 import {MatMenuModule} from '@angular/material/menu';
-import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductDetailsComponent } from './women/product-details/product-details.component';
+import { Angular4PaystackModule } from 'angular4-paystack';
 
 
 
@@ -27,6 +28,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     CommonModule,
     SharedModule,
     MatMenuModule,
+    Angular4PaystackModule.forRoot('pk_test_3d899974e50aca79814d71c208ef76ef60bc9966'),
     LayoutRoutingModule
   ]
 })
