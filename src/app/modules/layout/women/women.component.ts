@@ -76,6 +76,7 @@ export class WomenComponent implements OnInit {
   addToCart(item: any) {
     this.cartItems = localStorage.getItem("cartItems")
     if (JSON.parse(this.cartItems) == null || JSON.parse(this.cartItems).length == 0) {
+      this.cartItems = []
       this.cartItems.push({ ...item })
       localStorage.setItem("cartItems", JSON.stringify(this.cartItems))
       this._cartService.cartMessenger.next(true)

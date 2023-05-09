@@ -49,13 +49,16 @@
             </div>
             <img [src]="item.image" class="h-[190px] w-[80px]" alt="">
         </div>
+        <div class="mt-10 mb-10" *ngIf="cartNumber == 0">
+            <div class="font-bold">Yo!!!, Your Cart is Empty</div>
+        </div>
         <div class="flex mt-2 justify-between" (click)="$event.stopPropagation();">
             <div class="font-bold">Total</div>
             <div class="font-bold">${{total}}</div>
         </div>
 
-        <div class="flex justify-between mt-5">
-            <div class="border p-2 mr-2">VIEW BAG</div>
+        <div *ngIf="cartNumber != 0" class="flex justify-between mt-5">
+            <div class="border p-2 mr-2"></div>
             <div
                 angular4-paystack
               [email]="'olanipekunoladeji93@gmail.com'"
